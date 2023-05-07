@@ -1,0 +1,156 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: "baset";
+    src: url("../fonts/Baseticatrial-Bold.woff2");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'baset';
+    src: url('../fonts/Baseticatrial.woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+h1{
+    font-size: 2em;
+    color: rgb(243, 146, 0);
+    margin: 10px auto;
+}
+h2{
+    font-size: 1.2em;
+    color: rgb(243, 146, 0);
+    margin: 10px auto;
+}
+a{
+    text-decoration: none;
+    color: var(--purple);
+}
+a:hover{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.login-footer{
+    font-size: 0.8em;
+    text-align: center;
+    margin: 10px auto;
+}
+.error{
+    max-width: 400px;
+    background: transparent;
+    border: 1px solid rgb(230, 1, 1);
+    color: rgb(230, 1, 1);
+    font-weight: bold;
+    padding: 15px;
+    margin: 0 auto;
+}
+.success{
+    max-width: 400px;
+    background: transparent;
+    border: 1px solid rgb(1, 243, 102);
+    color: rgb(1, 243, 102);
+    font-weight: bold;
+    padding: 15px;
+    margin: 0 auto;
+}
+body{
+    background:rgb(7, 7, 7);
+    background-image: linear-gradient(180deg,  rgb(20, 19, 22) 20%, rgb(7, 7, 7) 80% );
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    font-family: baset, 'Courier New', Courier, monospace;
+    font-size: 1em;
+}
+#logo{
+    width: 150px;
+    height: 40px;
+    margin: 10px auto;
+    background: transparent;
+
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    border: 1.5px solid #f39200;
+    border-radius: 5px;
+    margin: 10px auto;
+    height: 50px;
+    color: #fff;
+    background: transparent;
+    font-size: 1.3em;
+    padding: 5px 10px;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    outline: 2px solid rgb(250, 209, 38);
+    border-radius: 5px;
+    color: #fff;
+}
+input[type="submit"]{
+    width: 100%;
+    padding: 5px 10px;
+    margin: 10px auto;
+    height: 50px;
+    text-align: center;
+    background: #f39200;
+    color: #000;
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    transition: 1s;
+    cursor: pointer;
+}
+input[type="submit"]:hover{
+    background: transparent;
+    border: 2px solid #f39200;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/********************** Homepage Flex Section ***************/
+.main-container{
+    max-width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    margin: 10% auto;
+}
+.login-container-2{
+    flex: 1 1 auto;
+    align-self: stretch;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 20px;
+    line-height: 1.5em;
+    text-align:center
+}
+.login-container{
+    flex: 1 1 auto;
+    align-self: stretch;
+    max-width: 450px;
+    margin: 10px auto;
+    padding: 20px;
+    border: 1.5px solid #f39200;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.706);
+}
+.login-container h1{
+    color:rgb(250, 209, 38);
+    margin: 20px auto;
+    text-transform: uppercase;
+}
+.login-container p{
+    color:rgb(255, 255, 255);
+    text-transform: lowercase;
+    font-size: 0.5em;
+}
+
+/********************** User Profile Section ***************/
+header{
+   
+}
