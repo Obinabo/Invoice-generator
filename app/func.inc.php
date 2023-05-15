@@ -1,0 +1,14 @@
+<?php
+function get_user($con, $user_id){
+    $q = "SELECT * FROM users WHERE user_id = ?";
+    $stmt = mysqli_prepare($con, $q);
+    mysqli_stmt_bind_param($stmt, 'i', $user_id);
+    mysqli_stmt_execute($stmt);
+}
+function get_invoice($con, $order_no){
+    $q = "SELECT * FROM invoice WHERE order_no = ?";
+    $stmt = mysqli_prepare($con, $q);
+    mysqli_stmt_bind_param($stmt, 'i', $order_no);
+    mysqli_stmt_execute($stmt);
+}
+?>

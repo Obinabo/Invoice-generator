@@ -3,6 +3,11 @@
     margin: 0;
     padding: 0;
 }
+html, body, p, h1, div, span, table, tbody, tr, th, td, article, aside, figcaption, figure, footer, header, hgroup, menu, nav, 
+section, summary, time, mark, audio, video, ul, li{
+    margin: 0;
+    padding: 0;
+}
 @font-face {
     font-family: "baset";
     src: url("../fonts/Baseticatrial-Bold.woff2");
@@ -15,6 +20,23 @@
     font-weight: normal;
     font-style: normal;
 }
+body{
+    background:rgb(7, 7, 7);
+    background-image: linear-gradient(180deg,  rgb(20, 19, 22) 20%, rgb(7, 7, 7) 80% );
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    font-family: baset, 'Courier New', Courier, monospace;
+    font-size: 1em;
+}
+#body{
+    background:rgb(255, 255, 255);
+    width: 100%;
+    color: rgb(0, 0, 0);
+    font-family: baset, 'Courier New', Courier, monospace;
+    font-size: 1em;
+}
 h1{
     font-size: 2em;
     color: rgb(243, 146, 0);
@@ -26,12 +48,15 @@ h2{
     margin: 10px auto;
 }
 a{
+    color: #fff;
     text-decoration: none;
-    color: var(--purple);
+}
+p{
+    margin: 5px 0px;
 }
 a:hover{
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(243, 146, 0);
 }
 .login-footer{
     font-size: 0.8em;
@@ -39,7 +64,7 @@ a:hover{
     margin: 10px auto;
 }
 .error{
-    max-width: 400px;
+    width: 100%;
     background: transparent;
     border: 1px solid rgb(230, 1, 1);
     color: rgb(230, 1, 1);
@@ -55,16 +80,7 @@ a:hover{
     font-weight: bold;
     padding: 15px;
     margin: 0 auto;
-}
-body{
-    background:rgb(7, 7, 7);
-    background-image: linear-gradient(180deg,  rgb(20, 19, 22) 20%, rgb(7, 7, 7) 80% );
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    color: rgb(255, 255, 255);
-    font-family: baset, 'Courier New', Courier, monospace;
-    font-size: 1em;
+    text-align: center;
 }
 #logo{
     width: 150px;
@@ -73,9 +89,9 @@ body{
     background: transparent;
 
 }
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="number"]{
     width: 100%;
-    border: 1.5px solid #f39200;
+    border: 2px solid #f39200;
     border-radius: 5px;
     margin: 10px auto;
     height: 50px;
@@ -84,7 +100,7 @@ input[type="text"], input[type="email"], input[type="password"] {
     font-size: 1.3em;
     padding: 5px 10px;
 }
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus{
     outline: 2px solid rgb(250, 209, 38);
     border-radius: 5px;
     color: #fff;
@@ -110,7 +126,6 @@ input[type="submit"]:hover{
     color: #fff;
     border-radius: 5px;
 }
-
 /********************** Homepage Flex Section ***************/
 .main-container{
     max-width: 90%;
@@ -138,6 +153,7 @@ input[type="submit"]:hover{
     border: 1.5px solid #f39200;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.706);
+    text-align: center;
 }
 .login-container h1{
     color:rgb(250, 209, 38);
@@ -152,5 +168,174 @@ input[type="submit"]:hover{
 
 /********************** User Profile Section ***************/
 header{
-   
+    background-color: rgb(0, 0, 0);
+    padding: 5px 30px; 
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    color: #fff;
+    z-index: 10;
+}
+header .logo{
+    flex: 2 1 200px;
+    align-self: center;
+    margin-right: auto;
+    
+    width: 150px;
+    height: 60px;
+}
+/*header .navmenu{
+ 
+}*/
+header .navmenu i{
+    font-size: 1.3em;
+}
+header .navmenu a{
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+}    
+header .navmenu a:hover{
+    text-decoration: none;
+    color:rgb(243, 146, 0);
+}
+header .address{
+    flex: 1 1 auto;
+    align-self: center;
+    font-size: 1em;
+    text-align: left;
+}
+header .address p{
+    font-size: 0.8em;
+    margin: 5px 0px;
+}
+.yellow{
+    color:#f39200;
+    font-weight: bold;
+}
+.yellow-bg{
+    background:#f39200;
+    font-weight: bold;
+}
+footer{
+    background-color: #f39200;
+    color: rgb(0, 0, 0);
+    flex-flow: row wrap;
+    font-size: 0.5em;
+}
+.table-container{
+    max-width: 90%;
+    margin: 5% auto;
+    background: transparent;
+    border: 1px solid rgb(243, 146, 0);
+    padding: 20px;
+}
+.table-container:hover{
+    box-shadow: -2px 4px 10px rgb(44, 44, 44);
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    text-align: left;
+    margin: 20px auto;
+    overflow: scroll;
+}
+th, td{
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    border: 1px solid #f39200;
+}
+th{
+    background-color: #f39200;
+}
+/*tr:nth-of-type(odd){
+    background-color:rgb(20, 19, 22);
+}
+tr:nth-of-type(odd){
+    background-color:rgb(0, 0, 0);
+}*/
+.table-button{
+    padding: 10px;
+    background-color: #f39200;
+    color:rgb(255, 255, 255);
+    width:fit-content;
+    margin: 40px 0px 40px 0%;
+    transition: 1s;
+}
+.table-button:hover{
+    background-color: transparent;
+    color:#f39200;
+    border: 1px solid #f39200;
+}
+/************************** Create user styles **************************/
+.create-container{
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+    max-width: 90%;
+    margin: 5% auto;
+    padding: 20px;
+    background: transparent;
+}
+.create-container .left{
+    flex: 2 1;
+    text-align: left;
+}
+.create-container .right{
+    flex: 1 1;
+    text-align: left;
+}
+.create-container .left h1{
+    color:rgb(243, 146, 0);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+.create-container .right h1{
+    color:rgb(243, 146, 0);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+.company-details{
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+    max-width: 90%;
+    margin: 10px auto;
+    padding: 20px;
+    background: transparent;
+}
+
+.company-details .left{
+    flex: 1 1 auto;
+    text-align: left;
+    max-width: 450px;
+}
+.company-details .right{
+    flex: 1 1 auto;
+    text-align: left;
+    max-width: 600px;
+}
+.company-details .right h1{
+    color:rgb(243, 146, 0);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+.button{
+    padding: 10px;
+    background-color: #f39200;
+    color:rgb(255, 255, 255);
+    width:fit-content;
+    margin: 40px 0px 40px 5%;
+    transition: 1s;
+}
+.button:hover{
+    background-color: transparent;
+    color:#f39200;
+    border: 1px solid #f39200;
 }
