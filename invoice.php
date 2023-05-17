@@ -25,7 +25,7 @@ if (isset($_GET['id']) ) { // From view_users.php
 
 <body id="body">
     <header>
-        <div class="logo"><img src="assets/img/Melks.png" alt="Melks Logo" width="200px" height="60px"></div>
+        <div class="logo"><a href="user.php"><img src="assets/img/Melks.png" alt="Melks Logo" width="200px" height="60px"></a></div>
         <div class="address">
             <p><span class="yellow">Address:</span> Suite 2 Gelly's House, Secrrtariat Road Aroma, Awka.</p>
             <p><span class="yellow">Mobile:</span> 07034719349</p>
@@ -78,7 +78,7 @@ if (isset($_GET['id']) ) { // From view_users.php
             <p>UBA</p>
         </div>
     </div>
-    <a href="" onclick="printPage()" class="button">Print Invoice</a>
+    <a href="" onclick="window.print()" class="button">Print Invoice</a>
 <script src="assets/js/index.js"></script>
 </body>
 </html>

@@ -6,6 +6,14 @@ if(!isset($_SESSION['id'])){
 $title = 'Create Invoice';
 include_once 'app/config.php';
 $id = $_SESSION['id'];
+$q = "SELECT * FROM users WHERE user_id = ?";
+$stmt = mysqli_prepare($con, $q);
+mysqli_stmt_bind_param($stmt, 'i', $id);
+mysqli_stmt_execute($stmt);
+$r = mysqli_stmt_get_result($stmt);
+    if (mysqli_num_rows($r)==1) {
+            $user = mysqli_fetch_assoc($r);
+    }
 //$query = "SELECT * FROM users WHERE user_id = $id";
 //$result = mysqli_query($con, $query);
 //get_user($id, $con);
@@ -101,6 +109,5 @@ include 'include/nav.php';
             </form>
         </div>
     </div>
-<script src="assets/js/index.js"></script>
-</body>
-</html>
+<?php include 'include/foot.php';?>
+          

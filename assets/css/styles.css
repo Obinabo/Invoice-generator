@@ -29,6 +29,7 @@ body{
     color: rgb(255, 255, 255);
     font-family: baset, 'Courier New', Courier, monospace;
     font-size: 1em;
+    
 }
 #body{
     background:rgb(255, 255, 255);
@@ -52,7 +53,8 @@ a{
     text-decoration: none;
 }
 p{
-    margin: 5px 0px;
+    font-size: 1em;
+    margin: 10px 0px;
 }
 a:hover{
     text-decoration: none;
@@ -81,7 +83,20 @@ a:hover{
     padding: 15px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
 }
+.close{
+    position:absolute;
+    width: 40px;
+    height: 30px;
+    top: 0;
+    right: 5px;
+    color: rgb(255, 255, 255);
+    padding:auto auto;
+    text-align:center;
+    
+ }
+
 #logo{
     width: 150px;
     height: 40px;
@@ -132,24 +147,34 @@ input[type="submit"]:hover{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    align-content: center;
+    align-items: center;
     margin: 10% auto;
 }
 .login-container-2{
-    flex: 1 1 auto;
+    flex: 1 1 400px;
     align-self: stretch;
-    max-width: 600px;
     margin: 10px auto;
     padding: 20px;
     line-height: 1.5em;
     text-align:center
 }
-.login-container{
-    flex: 1 1 auto;
+.login-container-1{
+    flex: 1 1 400px;
     align-self: stretch;
-    max-width: 450px;
     margin: 10px auto;
     padding: 20px;
+    max-width: 600px;
+    border: 1.5px solid #f39200;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.706);
+    text-align: center;
+}
+.login-container{
+    flex: 1 1 400px;
+    align-self: stretch;
+    margin: 10px auto;
+    padding: 20px;
+    max-width: 450px;
     border: 1.5px solid #f39200;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.706);
@@ -182,14 +207,36 @@ header .logo{
     flex: 2 1 200px;
     align-self: center;
     margin-right: auto;
-    
     width: 150px;
     height: 60px;
 }
-/*header .navmenu{
- 
-}*/
-header .navmenu i{
+.nav-cont{
+    display: block;
+    position: fixed;
+    background-color: #000;
+    right: -2000px;
+    top: 60px;
+    color: #fff;
+    width:40%;
+    height: 100vh;
+    z-index: 1;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+.nav-cont i{
+    margin: 0px 10px;
+}
+.show{
+    right: 0px;
+    transition: all 0.3s ease;
+}
+header .navmenu{
+    color: white;
+    font-size: 1.3em;
+    margin: 0px 20px;
+}
+
+/*header .navmenu i{
     font-size: 1.3em;
 }
 header .navmenu a{
@@ -199,7 +246,7 @@ header .navmenu a{
 header .navmenu a:hover{
     text-decoration: none;
     color:rgb(243, 146, 0);
-}
+}*/
 header .address{
     flex: 1 1 auto;
     align-self: center;
@@ -218,6 +265,10 @@ header .address p{
     background:#f39200;
     font-weight: bold;
 }
+.center{
+    margin: 30px auto;
+    text-align: center;
+}
 footer{
     background-color: #f39200;
     color: rgb(0, 0, 0);
@@ -230,6 +281,7 @@ footer{
     background: transparent;
     border: 1px solid rgb(243, 146, 0);
     padding: 20px;
+  
 }
 .table-container:hover{
     box-shadow: -2px 4px 10px rgb(44, 44, 44);
@@ -240,7 +292,6 @@ table{
     width: 100%;
     text-align: left;
     margin: 20px auto;
-    overflow: scroll;
 }
 th, td{
     padding: 10px;
@@ -338,4 +389,45 @@ tr:nth-of-type(odd){
     background-color: transparent;
     color:#f39200;
     border: 1px solid #f39200;
+}
+
+@media (max-width: 600px){
+    header .navmenu{
+        display: none;
+    }
+    h1{
+        font-size: 2em;
+        line-height: 1em;
+    }
+    .table-container{
+        overflow-x: scroll;
+    }
+    .main-container{
+        max-width: 95%;
+    }
+    .mobile{
+        font-size: 1.3em;
+        color: #fff;
+    }
+    .mobile:hover{
+        font-size: 1.3em;
+        color: #f39200;
+    }
+    .nav-cont{
+        display: block;
+        position: fixed;
+        background-color: #000;
+        right: -600px;
+        top: 60px;
+        color: #fff;
+        width: 80%;
+        height: 100vh;
+        z-index: 1;
+        padding: 20px;
+        transition: all 0.5s ease;
+    }
+    .show{
+        right: 0px;
+        transition: all 0.5s ease;
+    }
 }

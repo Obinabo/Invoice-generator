@@ -27,9 +27,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (password_verify($pass, $row['password'])) {
                 //echo '<div class="success">Welcome! '. $row['name'] .'</div>';
-                $_SESSION['id'] = $row['user_id'];
-                header("location: user.php");
-                exit();
+                if ($row['active'] !== NULL) {
+                    $msg[] = '<div class="error">Please activate your email.</div>';
+                } else {
+                    //echo '<div class="success">Welcome! '. $row['name'] .'</div>';
+                    $_SESSION['id'] = $row['user_id'];
+                    header("location: user.php");
+                    exit();
+                }
             } else {
                 $msg[] = '<div class="error">Incorrect Password</div>';
             }

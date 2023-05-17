@@ -1,9 +1,9 @@
 <?php
 define('DB_HOST', 'localhost');
 define('DB_USER', 'wally');
-define('DB_NAME', 'invoice');
+define('DB_NAME', 'melksinvoice');
 define('DB_PASS', 'Obinabo1995');
-
+define('BASE_URL', 'https://melksreality.com/invoice');
 $con = @mysqli_connect(DB_HOST, DB_USER, DB_PASS);
 if (!$con){
     echo "Error connecting to database";
