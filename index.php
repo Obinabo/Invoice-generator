@@ -27,14 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (password_verify($pass, $row['password'])) {
                 //echo '<div class="success">Welcome! '. $row['name'] .'</div>';
-                if ($row['active'] !== NULL) {
-                    $msg[] = '<div class="error">Please activate your email.</div>';
-                } else {
-                    //echo '<div class="success">Welcome! '. $row['name'] .'</div>';
-                    $_SESSION['id'] = $row['user_id'];
+                 $_SESSION['id'] = $row['user_id'];
                     header("location: user.php");
-                    exit();
-                }
             } else {
                 $msg[] = '<div class="error">Incorrect Password</div>';
             }
@@ -65,7 +59,8 @@ include 'include/head.php';
                 <input type="password" name="password" placeholder="Password" required>
                 <input type="submit" value="Login">
             </form>
-            <a href="register.php">Create Account</a>
+            <p>or</p> 
+            <a href="register.php">Create an Account</a>
         </div>
     </div>
 <script src="assets/js/index.js"></script>

@@ -28,17 +28,22 @@ include 'include/head.php';
                         <table>
                             <tr>
                             <th>Name of Client</th>
-                            <th>Purchased Item</th>
-                            <th>Amount</th>
+                            <th>Order No.</th>
                             <th>Date</th>
                             <th>Actions</th>
                             </tr>';
                         while ($row = mysqli_fetch_array($inv_result)) {
                                 echo'<tr><td>'. $row['cname']. '</td>
-                                <td>'.$row['item']. '</td>
-                                <td>'.$row['amount']. '</td>
+                                <td>'.$row['order_no']. '</td>
                                 <td>'.$row['date']. '</td>
-                                <td><a href="invoice.php?id='.$row['order_no'].'">View</a></td></tr>';
+                                <td>
+                                    <a href="" class="action-button">Actions</a>
+                                        <div class="dropdown-content">
+                                            <p><a href="invoice.php?id='.$row['invoice_id'].'"><i class="fa-regular fa-eye"></i>  View</a></p>
+                                            <!--<p><a href="edit.php?id='.$row['order_no'].'"><i class="fa-regular fa-pen-to-square"></i>  Edit</a></p>-->
+                                            <p><a href="delete.php?id='.$row['invoice_id'].'"><i class="fa-regular fa-trash-can"></i>  Delete</a></p>
+                                        </div>
+                                </td></tr>';
                         } 
                     echo  '</table>
                         

@@ -12,8 +12,12 @@ if (isset($_GET['x'], $_GET['y']) && filter_var($_GET['x'], FILTER_VALIDATE_EMAI
 	$stmt->execute();
 
 	if ($stmt->affected_rows == 1) {
-		echo '<div class="success"><h2>Your account is now active. Redirecting to your dashboard...</h2></div>';
-		header("refresh:3; url=user.php");
+		echo 	'<div class="main-container">
+                    <div class="login-container">
+                        <div class="success">Your account is now active.</div><br><br>
+                        <a href="user.php" class="return-button">Proceed to Dashboard</a>
+                    </div>   
+        		</div>';
 	} else {
 		echo '<div class="error">Activation failed.</div>';
 	}

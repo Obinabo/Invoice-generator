@@ -40,16 +40,16 @@ body{
 }
 h1{
     font-size: 2em;
-    color: rgb(243, 146, 0);
+    color: #FFC300;
     margin: 10px auto;
 }
 h2{
     font-size: 1.2em;
-    color: rgb(243, 146, 0);
+    color: #ffc300;
     margin: 10px auto;
 }
 a{
-    color: #fff;
+    color: #ffc300;
     text-decoration: none;
 }
 p{
@@ -58,7 +58,7 @@ p{
 }
 a:hover{
     text-decoration: none;
-    color: rgb(243, 146, 0);
+    color: #ffc300;
 }
 .login-footer{
     font-size: 0.8em;
@@ -94,6 +94,7 @@ a:hover{
     color: rgb(255, 255, 255);
     padding:auto auto;
     text-align:center;
+    font-size: 1.5em
     
  }
 
@@ -106,7 +107,7 @@ a:hover{
 }
 input[type="text"], input[type="email"], input[type="password"], input[type="number"]{
     width: 100%;
-    border: 2px solid #f39200;
+    border: 2px solid #e0ad03;
     border-radius: 5px;
     margin: 10px auto;
     height: 50px;
@@ -126,7 +127,7 @@ input[type="submit"]{
     margin: 10px auto;
     height: 50px;
     text-align: center;
-    background: #f39200;
+    background: #FFC300;
     color: #000;
     font-size: 1.3em;
     font-weight: bold;
@@ -140,6 +141,16 @@ input[type="submit"]:hover{
     border: 2px solid #f39200;
     color: #fff;
     border-radius: 5px;
+}
+.item-outline{
+    border-radius: 5px;
+    border: .5px solid #f39200;
+    padding: 8px;
+    margin-bottom: 5px;
+
+}
+#add-items{
+    margin: 5px auto;
 }
 /********************** Homepage Flex Section ***************/
 .main-container{
@@ -164,7 +175,7 @@ input[type="submit"]:hover{
     margin: 10px auto;
     padding: 20px;
     max-width: 600px;
-    border: 1.5px solid #f39200;
+    border: 1.5px solid #e0ad03;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.706);
     text-align: center;
@@ -175,7 +186,7 @@ input[type="submit"]:hover{
     margin: 10px auto;
     padding: 20px;
     max-width: 450px;
-    border: 1.5px solid #f39200;
+    border: 1.5px solid #FFD700;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.706);
     text-align: center;
@@ -188,9 +199,8 @@ input[type="submit"]:hover{
 .login-container p{
     color:rgb(255, 255, 255);
     text-transform: lowercase;
-    font-size: 0.5em;
+    font-size: 1em;
 }
-
 /********************** User Profile Section ***************/
 header{
     background-color: rgb(0, 0, 0);
@@ -258,11 +268,11 @@ header .address p{
     margin: 5px 0px;
 }
 .yellow{
-    color:#f39200;
+    color:#fff;
     font-weight: bold;
 }
 .yellow-bg{
-    background:#f39200;
+    background:#ffc300;
     font-weight: bold;
 }
 .center{
@@ -270,21 +280,25 @@ header .address p{
     text-align: center;
 }
 footer{
-    background-color: #f39200;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    background-image: linear-gradient(320deg, #FFD700 30%, #FFC300 70%);
     color: rgb(0, 0, 0);
-    flex-flow: row wrap;
-    font-size: 0.5em;
+    font-size: 1em;
+    text-align: center;
 }
 .table-container{
     max-width: 90%;
     margin: 5% auto;
     background: transparent;
-    border: 1px solid rgb(243, 146, 0);
+    border: 1px solid #FFC300;
     padding: 20px;
   
 }
 .table-container:hover{
-    box-shadow: -2px 4px 10px rgb(44, 44, 44);
+    box-shadow: 2px 4px 10px rgb(44, 44, 44);
 }
 table{
     border-collapse: collapse;
@@ -297,10 +311,10 @@ th, td{
     padding: 10px;
     width: 150px;
     text-align: center;
-    border: 1px solid #f39200;
+    border: 1px solid #ffd700;
 }
 th{
-    background-color: #f39200;
+    background: #FFD700;
 }
 /*tr:nth-of-type(odd){
     background-color:rgb(20, 19, 22);
@@ -310,7 +324,7 @@ tr:nth-of-type(odd){
 }*/
 .table-button{
     padding: 10px;
-    background-color: #f39200;
+    background-color: #FFD700;
     color:rgb(255, 255, 255);
     width:fit-content;
     margin: 40px 0px 40px 0%;
@@ -318,8 +332,34 @@ tr:nth-of-type(odd){
 }
 .table-button:hover{
     background-color: transparent;
+    color:#fff;
+    border: 1px solid #ffd700;
+}
+.return-button{
+    padding: 10px;
+    background-color: #ffd700;
+    color:rgb(255, 255, 255);
+    width: 100%;
+    margin: 40px 0px;
+    transition: 1s;
+}
+.return-button:hover{
+    background-color: transparent;
     color:#f39200;
     border: 1px solid #f39200;
+}
+.action-button{
+    padding: 10px;
+    background-color: #ffd700;
+    color:rgb(255, 255, 255);
+    width: 100%;
+    margin: 40px 0px;
+    transition: 1s;
+}
+.action-button:hover{
+    background-color: transparent;
+    color:#ffd700;
+    border: 1px solid #ffd700;
 }
 /************************** Create user styles **************************/
 .create-container{
@@ -340,13 +380,13 @@ tr:nth-of-type(odd){
     text-align: left;
 }
 .create-container .left h1{
-    color:rgb(243, 146, 0);
+    color:#FFD700;
     font-size: 1.2em;
     font-weight: bold;
     margin: 10px 0px;
 }
 .create-container .right h1{
-    color:rgb(243, 146, 0);
+    color:#FFD700;
     font-size: 1.2em;
     font-weight: bold;
     margin: 10px 0px;
@@ -372,14 +412,14 @@ tr:nth-of-type(odd){
     max-width: 600px;
 }
 .company-details .right h1{
-    color:rgb(243, 146, 0);
+    color:#FFD700;
     font-size: 1.2em;
     font-weight: bold;
     margin: 10px 0px;
 }
 .button{
     padding: 10px;
-    background-color: #f39200;
+    background-color: #FFC300;
     color:rgb(255, 255, 255);
     width:fit-content;
     margin: 40px 0px 40px 5%;
@@ -387,8 +427,8 @@ tr:nth-of-type(odd){
 }
 .button:hover{
     background-color: transparent;
-    color:#f39200;
-    border: 1px solid #f39200;
+    color:#FFC300;
+    border: 1px solid #FFC300;
 }
 
 @media (max-width: 600px){

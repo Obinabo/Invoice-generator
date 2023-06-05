@@ -38,12 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 mysqli_stmt_execute($stmt);
                 
                 if(mysqli_stmt_affected_rows($stmt)== 1){
-                    $success_msg = '<div class="success">
-                    <div class="close">close</div>
-                    Registration Complete!<br> A confirmatory mail has been sent to '.$email.' </div>';
-                    $activation_link = BASE_URL.'activation.php/?x='.urlencode($email) . "&y=$activation_code";
-                    $subject = "MelksReality INC";
-                    $msg = '
+                    $activation_link = 'https://melksreality.com/invoice/activation.php?x='.urlencode($email) . "&y=$activation_code";
+                    $subject = "Activate Your Email";
+                    $mail = '
 
                     <html>
                     <head>
@@ -53,29 +50,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <meta http-equiv="x-ua-compatible" content="ie=edge">
                         <style>
                             html {background-color: rgb(206, 202, 202);}
-                            body{font-family: "JosefinSans", "baset", "Times New Roman", Times, serif; font-size: 1em; background-color: rgb(252, 252, 252); line-height: 1.5; margin: 0 auto 0 auto; width: 100%;}
+                            body{font-family: Arial, Helvetica, sans-serif; font-size: 1em; background-color: rgb(252, 252, 252); line-height: 1.5; margin: 0 auto 0 auto; width: 100%;}
                             .header{background-color: #000000; padding-top: 20px; padding: 20px; text-align:center; display:flex;}
                             .container{padding: 10px; border-color: rgb(8, 102, 165); width: 100%; align-items: center;}
-                            .footer{background-color: #000; padding: 5px; -moz-box-align: center; -webkit-box-align: center; color: rgb(243, 146, 0); }
+                            .footer{background-color: #000; margin: 30px auto 0px auto; padding: 5px; -moz-box-align: center; -webkit-box-align: center; color: rgb(243, 146, 0); }
                             p {text-align: center; font-size: 1em}
-                            h1{font-size: 1.5em; color:rgb(243, 146, 0); font-weight: bolder;}
-                            h2{font-size: 1.2em; color:rgb(243, 146, 0); font-weight: bolder;}
-                            .footer>.list{display: flex; text-align: center; font-size: 0.5em; margin-top: 20px; padding: 20px; border-top: 1px solid rgb(201, 199, 199);}
+                            h1{font-size: 2em; color:rgb(243, 146, 0); font-weight: bolder;}
+                            h2{font-size: 1.5em; color:rgb(243, 146, 0); font-weight: bolder;}
+                            .footer>.list{text-align: center; font-size: 0.7em; margin-top: 20px; padding: 20px; border-top: 1px solid rgb(201, 199, 199);}
                             .box1{margin-right: 20%;}
                             .box{width: 100%; flex-direction: column;}
                             #logo{width: 30%;}
                             a{color: #fff; text-decoration: none;}
-                            a:visited{color:rgb(243, 146, 0);)}
+                            a:visited{color:rgb(243, 146, 0);}
                             a:active{color:rgb(243, 146, 0)}
                             a:hover{color: #f39200;}
-                            .btn{border-radius:20px; padding: 5px 20px 5px 20px; margin-top: 50px; margin-bottom: 50px; text-align: center;}
-                            .btn-bg{background-color: #f39200; color: rgb(0, 0, 0);}
-                            .btn:hover{background-color:rgb(0, 0, 0); color:rgb(255, 255, 255);}
+                            .button{
+                                padding: 10px;
+                                background-color: #f39200;
+                                color:rgb(255, 255, 255);
+                                width:fit-content;
+                                margin: 20px auto;
+                                transition: 1s;
+                            }
+                            .button:hover{
+                                background-color: transparent;
+                                color:#f39200;
+                                margin: 20px auto;
+                                border: 1px solid #f39200;
+                            }
                             img{padding: 10px; box-shadow: -5px 5px 10px rgba(71, 71, 71, 0); margin: 5px;}
                             .text-black{color: rgb(27, 27, 27)}
                             .text-white{color: rgb(253, 252, 252)}
                             .text-bold{font-weight: bold;}
-                           .footer>p{font-size: 0.7em;}
+                           .footer>p{font-size: 0.8em;}
                             .welcome{padding: auto; margin: auto; box-shadow: -5px 5px 10px rgba(71, 71, 71, 0); width: 80%;}
                         </style>
                     </head>
@@ -93,31 +101,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                          <center>
                     <div id="logo"><a href="https://melksreality.com/invoice"><img src="https://melksreality.com/invoice/assets/img/Melks.png" width="110px" height="50px" alt="logo" /></a></div>          
                     <h1> Confirm Email Address</h1>
-                    <p>You just created an account for MelksReality Invoice, please confirm your email address to continue</p>
+                    <p>You just created an account on MelksReality Invoice, please confirm your email address to continue.</p>
+                    <p>Click on the button below to activate your account.</p>
                     
-                    <a class="btn btn-bg text-white" href="'.$activation_link.'">Confirm Email Address</a>
+                    <a class="button" href="'.$activation_link.'">Confirm Email Address</a><br/>
+                    <p>Or copy the link below and paste directly into your browser address bar:</p><br/>
+
+                    <a href="'.$activation_link.'">'.$activation_link.'</a>
                     </div>
                 </center>
             <footer>
-                <div class="footer text-black"><p>No. 1 Interior Designing Company. </p>
+                <div class="footer text-white">
                 <p class="text-bold">Address: Suite 2, Gelly\'s House, Aroma Awka, Anambra State.</p>
                 <!--<p class="text-bold">Phone: </p>-->
-                <p class="text-bold">Support Email: contact@melksreality.com</p>
+                <p class="text-bold">Support Email: support@melksreality.com</p>
                
-                <p>Kind Regards, Crypto-shell INC</p>
-                <div class="list ">
-                    <div class="box"> <a href="" class="text-black">FAQ</a></div>
-                    <div class="box"><a href="" class="text-black">Rules</a></div>
-                    <div class="box"><a href="" class="text-black">Contact</a></div>
+                <p>Kind Regards, MelksReality INC</p>
+                    <div class="list ">
+                        <p>MelksReality Copyriight &#169; 2023</p>
+                    </div>
                 </div>
-            </div>
             </footer>
             </body>
             </html>';
             include 'mail.php';
-            sendEmail($email, $subject, $msg);
+            sendEmail($email, $subject, $mail);
+                    $success_msg = '<div class="success">
+                    <div class="close">x</div>
+                    Registration Complete!<br> An activation mail has been sent to '.$email.' </div>';
+                    
         }else{
-                    echo '<div class="error">Registration Failed! Try Again</div>';
+                    $msg[] = '<div class="error">Registration Failed! Try Again</div>';
                 }
             }else {
                 foreach ($msg as $new_msg) {
@@ -149,6 +163,7 @@ include('include/head.php');
                 <input type="password" name="password2" placeholder="Confirm Password" required>
                 <input type="submit" value="Register">
             </form>
+            <p>Already have an account?</p>
             <a href="index.php">Login</a>
         </div>
         <div class="login-container-2">

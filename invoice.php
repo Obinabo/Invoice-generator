@@ -4,25 +4,33 @@ include "app/config.php";
 $title = 'Preview Invoice';
 include 'include/head.php';
 if (isset($_GET['id']) ) { // From view_users.php
- 	 $order_no = $_GET['id'];
- }elseif(isset($_SESSION['order_no'])){
-    $order_no = $_SESSION['order_no'];
+ 	 $invoice_id = $_GET['id'];
+ }elseif(isset($_SESSION['invoice_id'])){
+    $invoice_id = $_SESSION['invoice_id'];
    }else{
     header("location: index.php");
    }
 
-   $stmtq = "SELECT cname, phone, item, quantity, amount, tamount, order_no, date FROM invoice WHERE order_no = ?";
+   $stmtq = "SELECT * FROM invoice WHERE invoice_id = ?";
    $stmt = mysqli_prepare($con, $stmtq);
-   mysqli_stmt_bind_param($stmt, 's', $order_no);
+   mysqli_stmt_bind_param($stmt, 'i', $invoice_id);
    mysqli_stmt_execute($stmt);
 
    $r = mysqli_stmt_get_result($stmt);
    
-   if($row = mysqli_fetch_assoc($r)){ ?>
+   if($row = mysqli_fetch_assoc($r)){ 
+        $itemId = $row['invoice_id'];
+   }
+   $q = "SELECT * FROM invoice_items WHERE invoice_id = ?";
+   $stmt = mysqli_prepare($con, $q);
+   mysqli_stmt_bind_param($stmt, 'i', $itemId);
+   mysqli_stmt_execute($stmt);
+
+   $result = mysqli_stmt_get_result($stmt);
+   
+?>
       
  
-
-
 <body id="body">
     <header>
         <div class="logo"><a href="user.php"><img src="assets/img/Melks.png" alt="Melks Logo" width="200px" height="60px"></a></div>
@@ -51,19 +59,28 @@ if (isset($_GET['id']) ) { // From view_users.php
             <th>Amount</th>
             <th>Total Amount</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td><?php echo $row['item'] ?></td>
-                <td><?php echo $row['quantity'] ?></td>
-                <td><?php echo $row['amount'] ?></td>
-                <td><?php echo $row['tamount'] ?></td>
-            </tr>
+            <?php 
+            $totalSum = 0;
+            $sn = 1;
+            while($items = mysqli_fetch_array($result)){
+            echo'<tr>
+                <td> '. $sn. ' </td>
+                <td> '. $items['item'].' </td>
+                <td> '. $items['quantity'].' </td>
+                <td> '. $items['amount'].' </td>
+                <td> '. $items['tamount'].' </td>
+            </tr>';
+            $totalSum += $items['tamount'];
+            $sn++;
+            }
+            ?>
             <tr>
                 <td></td>
                 <td> </td>
                 <td> </td>
                 <td></td>
-                <td class="yellow-bg"><?php echo $row['tamount'] ?></td>
+                <td class="yellow-bg"><?php         
+                echo '₦ '.number_format($totalSum); ?></td>
             </tr>
         </table>
 
@@ -78,8 +95,7 @@ if (isset($_GET['id']) ) { // From view_users.php
             <p>UBA</p>
         </div>
     </div>
-    <a href="" onclick="window.print()" class="button">Print Invoice</a>
+    <a href="" onclick="window.print()" class="button"><i class="fa-solid fa-print"></i>  Print Invoice</a>
 <script src="assets/js/index.js"></script>
 </body>
 </html>
-<?php   } ?>
